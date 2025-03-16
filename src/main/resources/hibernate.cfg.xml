@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Подключение к БД -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/students_db</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">admin</property>
+
+        <!-- Диалект для конкретной базы данных (можно не указывать в последних версиях, определяется по драйверу) -->
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> -->
+
+        <!-- Логирование SQL-запросов -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Управление созданием таблиц (опционально) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Указываем классы сущностей -->
+        <mapping class="org.example.part.Student"/>
+
+    </session-factory>
+</hibernate-configuration>
